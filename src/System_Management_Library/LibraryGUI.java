@@ -117,22 +117,24 @@ public class LibraryGUI extends JFrame {
         }
     }
 
-    // Phương thức hiển thị tất cả sách
+    // Phương thức hiển thị tất cả sách trong cửa sổ riêng biệt
     private void listAllBooks() {
         List<Book> books = library.getAllBooks();
-        outputArea.append("All Books:\n");
+        StringBuilder bookList = new StringBuilder("All Books:\n");
         for (Book book : books) {
-            outputArea.append(book + "\n");
+            bookList.append(book).append("\n");
         }
+        JOptionPane.showMessageDialog(this, bookList.toString(), "All Books", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    // Phương thức hiển thị sách đã mượn
+    // Phương thức hiển thị sách đã mượn trong cửa sổ riêng biệt
     private void listBorrowedBooks() {
         List<Book> borrowedBooks = library.getBorrowedBooks();
-        outputArea.append("Borrowed Books:\n");
+        StringBuilder borrowedBookList = new StringBuilder("Borrowed Books:\n");
         for (Book book : borrowedBooks) {
-            outputArea.append(book + "\n");
+            borrowedBookList.append(book).append("\n");
         }
+        JOptionPane.showMessageDialog(this, borrowedBookList.toString(), "Borrowed Books", JOptionPane.INFORMATION_MESSAGE);
     }
 
     // Phương thức mượn sách
